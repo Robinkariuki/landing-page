@@ -22,7 +22,7 @@ export default function Navbar() {
     <div>
       <header className="absolute inset-x-0 top-0 z-50">
         <nav
-          className="container lg:mx-auto flex lg:justify-start lg:items-center p-6 lg:px-8"
+          className="container lg:mx-auto flex lg:justify-start lg:items-center p-6 lg:px-20"
           aria-label="Global"
         >
           <div className="flex justify-end lg:justify-start  mb-4 lg:mb-0 ">
@@ -50,7 +50,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-[#161C2D] font-bold hover:text-white text-sm  leading-6"
+                className="text-[#161C2D] font-bold hover:text-[#EB1260] text-sm  leading-6"
                 style={{ fontSize: '15px' }}
               >
                 {item.name}
