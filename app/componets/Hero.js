@@ -75,12 +75,12 @@ const Hero = () => {
           <br /> with verified experts across various specializations.
         </p>
         <Link href='/files/siscom.pdf' download>
-    <button
-      style={{ backgroundColor: "#EB1260", width: "259px", height: "59px" }}
-      className="py-2  relative z-20 px-4 rounded-lg text-white font-bold hover:bg-white hover:text-[#EB1260] transition-colors"
-    > 
-      Find Your Expert Talent
-    </button>
+        <button
+  className="py-2 relative z-20 px-4 rounded-lg text-white font-bold bg-[#EB1260] hover:bg-[#F0618A] transition-colors"
+  style={{ width: "259px", height: "59px" }}
+> 
+  Find Your Expert Talent
+</button>
   
 </Link>
 <p
