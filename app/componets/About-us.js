@@ -11,7 +11,7 @@ const AboutUs = () => {
           <h1 className="text-4xl font-bold  mb-4">About Us</h1>
           <h2 className="text-lg font-semibold text-[#EB1260] mb-2">Who We Are</h2>
           <p className="mb-4 text-base text-wrap">
-          At SISCOM, we bridge the gap between skilled tech talent <br/> and businesses in need of digital transformation.<br/> Whether you're an SME or a high-tech enterprise, our on-demand<br/> network of engineers, developers, and product<br/> managers is ready to accelerate your projects.
+          At SISCOM, we bridge the gap between skilled tech talent <br/> and businesses in need of digital transformation.<br/> Whether you&apos;re an SME or a high-tech enterprise, our on-demand<br/> network of engineers, developers, and product<br/> managers is ready to accelerate your projects.
           </p>
           <h2 className="text-lg font-semibold text-[#EB1260] mb-2 ">Our Mission</h2>
           <p className='text-base'>
