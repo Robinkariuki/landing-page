@@ -35,7 +35,7 @@ const Pool = () => {
                 <h3 className="text-xl font-bold">
                 Network & <br/> Telecoms                </h3>
               </div>
-              <p className="text-sm mt-8">
+              <p className="text-sm mt-8 text-white">
               NOC analysts, Engineers, Installation experts, Hardware engineers, Systems Engineers
               </p>
             </div>

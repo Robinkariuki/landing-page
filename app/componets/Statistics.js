@@ -24,18 +24,18 @@ const Statistics = () => {
       <div className="relative z-10 flex justify-center items-center h-full gap-4">
         {/* Card 1 */}
         <div className="bg-white  rounded-3xl shadow-lg p-6 w-[280px] h-[175px] text-center">
-          <h2 className="text-2xl font-bold mb-2 text-[#EB1260]">$1.5 Trillion</h2>
+          <h2 className="text-4xl font-bold mb-2 text-[#EB1260]">$1.5 Trillion</h2>
           <p>Growth Projection for Africa’s internet economy by 2035</p>
         </div>
         {/* Card 2 */}
         <div className="bg-white rounded-3xl shadow-lg p-6 w-[280px] h-[175px] text-center">
-          <h2 className="text-2xl font-bold mb-2 text-[#EB1260]">230 Million</h2>
-          <p>Digital Jobs to be filled in Sub-Saharan Africa by 2030</p>
+          <h2 className="text-4xl font-bold mb-2 text-[#EB1260]">230 Million</h2>
+          <p>Digital Jobs to be filled in <br/> Sub-Saharan Africa by 2030</p>
         </div>
         {/* Card 3 */}
         <div className="bg-white  rounded-3xl shadow-lg p-6 w-[280px] h-[175px] text-center">
-          <h2 className="text-2xl font-bold mb-2 text-[#EB1260]">120+</h2>
-          <p>Experts in Product Engineering, Cloud, etc. within our network</p>
+          <h2 className="text-4xl font-bold mb-2 text-[#EB1260]">120+</h2>
+          <p>Experts in Product Engineering, <br/>Cloud, etc. within our network</p>
         </div>
       </div>
    {/* Avatars */}
