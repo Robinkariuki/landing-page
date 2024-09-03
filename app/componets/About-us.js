@@ -7,7 +7,7 @@ const AboutUs = () => {
   return (
     <div className="pl-64 pt-16 bg-white"  style={{height:596}}>
       <div className="flex flex-col md:flex-row">
-        <div className="md:w-1/3 p-4">
+        <div className="md:w-[40%] p-4">
           <h1 className="text-4xl font-bold  mb-4">About Us</h1>
           <h2 className="text-lg font-semibold text-[#EB1260] mb-2">Who We Are</h2>
           <p className="mb-4 text-base ">
@@ -24,28 +24,28 @@ const AboutUs = () => {
     <Image
       src="/images/Image1.png"
       alt="Logo 1"
-      width={223}
-      height={209}
+      width={323}
+      height={309}
     />
         <Image
       src="/images/Image2.png"
       alt="Logo 2"
-      width={223}
-      height={124}
+      width={323}
+      height={224}
     />
   </div>
   <div className='flex flex-col gap-y-4'>
     <Image
       src="/images/Image3.png"
       alt="Logo 3"
-      width={223}
-      height={124}
+      width={323}
+      height={224}
     />
         <Image
       src="/images/Image4.png"
       alt="Logo 4"
-      width={223}
-      height={209} 
+      width={323}
+      height={309} 
     />
   </div>
 </div>
