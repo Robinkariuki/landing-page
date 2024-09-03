@@ -8,14 +8,11 @@ const Pool = () => {
         {/* First Row */}
         <div className="flex space-x-4 justify-end mr-96 ">
           <div>
-            <h1 className="text-4xl font-bold mb-4">
+            <h1 className="text-4xl font-bold mb-4 p-12">
               We’ll Help You Find The
               <br /> Experts You Need
             </h1>
-            <p className="mb-4 text-base">
-              Lorem ipsum dolor sit amet consectetur. Vel aenean
-              <br /> at phasellus id mattis arcu natoque rutrum.
-            </p>
+
           </div>
           <div className="rounded-3xl w-[301px] shadow-lg h-[195px] bg-white p-4 mr-20">
             <div className="text-left">

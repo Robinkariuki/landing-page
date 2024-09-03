@@ -7,10 +7,10 @@ const AboutUs = () => {
   return (
     <div className="pl-64 pt-16 bg-white"  style={{height:596}}>
       <div className="flex flex-col md:flex-row">
-        <div className="md:w-1/2 p-4">
+        <div className="md:w-1/3 p-4">
           <h1 className="text-4xl font-bold  mb-4">About Us</h1>
           <h2 className="text-lg font-semibold text-[#EB1260] mb-2">Who We Are</h2>
-          <p className="mb-4 text-base text-wrap">
+          <p className="mb-4 text-base ">
           At SISCOM, we bridge the gap between skilled tech talent <br/> and businesses in need of digital transformation.<br/> Whether you&apos;re an SME or a high-tech enterprise, our on-demand<br/> network of engineers, developers, and product<br/> managers is ready to accelerate your projects.
           </p>
           <h2 className="text-lg font-semibold text-[#EB1260] mb-2 ">Our Mission</h2>
@@ -19,7 +19,7 @@ const AboutUs = () => {
           </p>
         </div>
  
-    <div className="flex justify-between gap-x-4">
+    <div className="flex justify-between gap-x-4 mr-96">
   <div className='flex flex-col gap-y-4'>
     <Image
       src="/images/Image1.png"

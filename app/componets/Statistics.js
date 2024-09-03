@@ -38,10 +38,44 @@ const Statistics = () => {
           <p>Experts in Product Engineering, Cloud, etc. within our network</p>
         </div>
       </div>
-       {/* Avatars */}
-       {/* <div className="absolute top-10 left-10">
-          <Image src="/images/person1.png" alt="Avatar 1" width={50} height={50} />
-          </div>  */}
+   {/* Avatars */}
+<div className="absolute top-[160px] left-[455px] z-10">
+  <Image src="/images/person1.png" alt="Avatar 1" width={38} height={38} />
+</div>
+
+<div className="absolute top-[80px] left-[620px] z-10">
+  <Image src="/images/person2.png" alt="Avatar 1" width={70} height={70} />
+</div>
+
+
+<div className="absolute top-[60px] left-[850px] z-10">
+  <Image src="/images/person3.png" alt="Avatar 1" width={94} height={94} />
+</div>
+
+
+<div className="absolute top-[90px] left-[1040px] z-10">
+  <Image src="/images/person4.png" alt="Avatar 1" width={38} height={38} />
+</div>
+<div className="absolute top-[40px] left-[1220px] z-10">
+  <Image src="/images/person5.png" alt="Avatar 1" width={102} height={102} />
+</div>
+<div className="absolute top-[400px] left-[1160px] z-10">
+  <Image src="/images/person9.png" alt="Avatar 1" width={70} height={70} />
+
+</div>
+<div className="absolute top-[400px] left-[960px] z-10">
+  <Image src="/images/person8.png" alt="Avatar 1" width={44} height={44} />
+</div>
+
+<div className="absolute top-[400px] left-[760px] z-10">
+  <Image src="/images/person7.png" alt="Avatar 1" width={56} height={56} />
+</div>
+
+<div className="absolute top-[380px] left-[480px] z-10">
+  <Image src="/images/person6.png" alt="Avatar 1" width={102} height={102} />
+</div>
+
+
     </div>
     </div>
   );
