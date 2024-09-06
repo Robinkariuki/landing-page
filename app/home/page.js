@@ -11,7 +11,7 @@ import { Footer } from "../componets/Footer";
 
 export default function LandingPage() {
   return (
-    <div  >
+    < >
       <Navbar />
      <Hero/>
      <AboutUs/>
@@ -19,6 +19,6 @@ export default function LandingPage() {
      <Pool/>
      <Footer/>
 
-    </div>
+    </>
   );
 }

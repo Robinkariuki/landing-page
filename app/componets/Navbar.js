@@ -22,16 +22,17 @@ export default function Navbar() {
     <div>
       <header className="absolute inset-x-0 top-0 z-50">
         <nav
-          className="container lg:mx-auto flex lg:justify-start lg:items-center p-6 lg:px-20"
+          className="container lg:mx-auto flex  justify-between lg:justify-start lg:items-center p-6 lg:px-20"
           aria-label="Global"
         >
-          <div className="flex justify-end lg:justify-start  mb-4 lg:mb-0 ">
+          <div className="flex justify-end lg:justify-start   lg:mb-0 ">
           <Link href="">
       <Image
         src="/images/logo.png" // Replace with the path to your logo
         alt="Logo"
-        width={173} // Adjust the width as needed
-        height={50} // Adjust the height as needed
+        width={173} // Set the default width
+        height={50} // Set the default height
+      className="w-40 h-12 md:w-36 md:h-10 lg:w-44 lg:h-12"
       />
     </Link>
           </div>
@@ -39,10 +40,10 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(true)}
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-300"
+              className="-m-2.5 inline-flex  justify-end rounded-md p-6 text-black"
             >
               <span className="sr-only">Open main menu</span>
-              <Bars3Icon aria-hidden="true" className="h-6 w-6" />
+              <Bars3Icon aria-hidden="true"  className="h-6 w-6" />
             </button>
           </div>
           <div className="hidden lg:flex lg:ml-8 lg:gap-x-14">
