@@ -117,7 +117,6 @@ const Services = () => {
         alt="Service Image" 
         width={462} 
         height={384} 
-        layout="" 
         objectFit="cover" 
       />
     </div>
@@ -137,7 +136,6 @@ const Services = () => {
       alt="Service Image" 
       width={462} 
       height={284} 
-      layout="" 
       objectFit="cover" 
     />
   </div>
@@ -200,7 +198,6 @@ const Services = () => {
         alt="Service Image" 
         width={462} 
         height={384} 
-        layout="" 
         objectFit="cover" 
       />
     </div>
@@ -221,7 +218,6 @@ const Services = () => {
       alt="Service Image" 
       width={462} 
       height={284} 
-      layout="" 
       objectFit="cover" 
     />
   </div>
