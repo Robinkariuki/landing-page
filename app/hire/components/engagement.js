@@ -64,7 +64,7 @@ const EngagementProcess = () => {
   {/* Background Image (Circle) */}
   <div className="w-[300px] h-[320px] md:w-[463px] md:h-[504px] relative overflow-hidden">
     <Image 
-      src="/images/oval.png" 
+      src="/images/Oval.png" 
       alt="Process Image" 
       layout="responsive" 
       width={463} 
@@ -76,7 +76,7 @@ const EngagementProcess = () => {
     <div className="absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/2">
       <div className="w-[150px] h-[150px] md:w-[200px] md:h-[200px] overflow-hidden">
         <Image 
-          src="/images/fill1.png" 
+          src="/images/Fill1.png" 
           alt="Overlay Image" 
           layout="fill" 
           objectFit="cover" 
