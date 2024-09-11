@@ -32,7 +32,7 @@ const Services = () => {
   <div className="flex-1 flex items-center justify-center md:pl-12"> {/* Image's padding remains unchanged */}
     <div className="md:w-[70%] md:h-[10%]">
       <Image 
-        src="/images/Image1.png" 
+        src="/images/Service21.png" 
         alt="Service Image" 
         width={462} 
         height={384} 
@@ -52,7 +52,7 @@ const Services = () => {
 <div className="flex-1 flex items-center justify-center md:pl-64"> {/* Reduced md:pl-96 to md:pl-32 */}
   <div className="md:w-[70%] md:h-[10%]">
     <Image 
-      src="/images/Image1.png" 
+      src="/images/Service22.png" 
       alt="Service Image" 
       width={462} 
       height={284} 
@@ -113,7 +113,7 @@ const Services = () => {
   <div className="flex-1 flex items-center justify-center md:pl-12"> {/* Image's padding remains unchanged */}
     <div className="md:w-[70%] md:h-[10%]">
       <Image 
-        src="/images/Image1.png" 
+        src="/images/Service23.png" 
         alt="Service Image" 
         width={462} 
         height={384} 
@@ -132,7 +132,7 @@ const Services = () => {
 <div className="flex-1 flex items-center justify-center md:pl-64"> {/* Reduced md:pl-96 to md:pl-32 */}
   <div className="md:w-[70%] md:h-[10%]">
     <Image 
-      src="/images/Image1.png" 
+      src="/images/Service24.png" 
       alt="Service Image" 
       width={462} 
       height={284} 
@@ -194,7 +194,7 @@ const Services = () => {
   <div className="flex-1 flex items-center justify-center md:pl-12"> {/* Image's padding remains unchanged */}
     <div className="md:w-[70%] md:h-[10%]">
       <Image 
-        src="/images/Image1.png" 
+        src="/images/Service25.png" 
         alt="Service Image" 
         width={462} 
         height={384} 
@@ -214,7 +214,7 @@ const Services = () => {
 <div className="flex-1 flex items-center justify-center md:pl-64"> {/* Reduced md:pl-96 to md:pl-32 */}
   <div className="md:w-[70%] md:h-[10%]">
     <Image 
-      src="/images/Image1.png" 
+      src="/images/Service26.png" 
       alt="Service Image" 
       width={462} 
       height={284} 
