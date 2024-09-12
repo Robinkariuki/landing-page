@@ -4,12 +4,12 @@ import Image from 'next/image';
 const Services = () => {
   return (
 
-<div className="space-y-12">
+<div className="space-y-12 ">
       {/* First Row */}
       <div className="flex flex-col md:flex-row items-center md:items-start p-6 md:p-12 space-y-6 md:space-y-0">
   {/* First Column (Text) */}
   <div className="flex-1 flex flex-col  text-left justify-end">
-    <div className="md:pl-96 space-y-3"> {/* Padding inside the column */}
+    <div className="md:pl-72 space-y-3"> {/* Padding inside the column */}
       <h1 className="text-3xl md:text-4xl font-bold text-gray-900">Our Services</h1>
       <h2 className="text-xl md:text-2xl font-semibold text-[#EB1260]">1. On-Demand Talent Augmentation</h2>
       <p className="text-base md:text-lg">
@@ -49,7 +49,7 @@ const Services = () => {
       <div className="flex flex-col-reverse md:flex-row items-center md:items-start p-6 md:p-12 space-y-6 md:space-y-0">
 
 {/* Second Column (Image) */}
-<div className="flex-1 flex items-center justify-center md:pl-64"> {/* Reduced md:pl-96 to md:pl-32 */}
+<div className="flex-1 flex items-center justify-center md:pl-44"> {/* Reduced md:pl-96 to md:pl-32 */}
   <div className="md:w-[70%] md:h-[10%]">
     <Image 
       src="/images/Service22.png" 
@@ -63,7 +63,7 @@ const Services = () => {
 </div>
 
 {/* First Column (Text) */}
-<div className="flex-1 flex flex-col justify-end  md:pl-14 space-y-4"> {/* Reduced md:pl-20 to md:pl-12 */}
+<div className="flex-1 flex flex-col justify-end  md:pl-36 space-y-4"> {/* Reduced md:pl-20 to md:pl-12 */}
 <div className="md:pr-[200px]  space-y-3" >  {/* Padding inside the column */}
   <h2 className="text-xl md:text-2xl font-semibold text-[#EB1260]">2. Project-Based Engagement</h2>
   <p className="text-base md:text-lg">
@@ -91,7 +91,7 @@ const Services = () => {
       <div className="flex flex-col md:flex-row items-center md:items-start p-6 md:p-12 space-y-6 md:space-y-0">
   {/* First Column (Text) */}
   <div className="flex-1 flex flex-col text-left justify-end">
-    <div className="md:pl-96 space-y-3"> {/* Padding inside the column */}
+    <div className="md:pl-72 space-y-3"> {/* Padding inside the column */}
       <h2 className="text-xl md:text-2xl font-semibold text-[#EB1260]">3. Dedicated Team Allocation</h2>
       <p className="text-base md:text-lg">
         <span className="font-bold">Model Description:</span> SISCOM assigns a dedicated team of experts to work exclusively with a client for an extended period. This model works well for businesses with ongoing projects or those undergoing digital transformation that require sustained support.
@@ -129,7 +129,7 @@ const Services = () => {
       <div className="flex flex-col-reverse md:flex-row items-center md:items-start p-6 md:p-12 space-y-6 md:space-y-0">
 
 {/* Second Column (Image) */}
-<div className="flex-1 flex items-center justify-center md:pl-64"> {/* Reduced md:pl-96 to md:pl-32 */}
+<div className="flex-1 flex items-center justify-center md:pl-44"> {/* Reduced md:pl-96 to md:pl-32 */}
   <div className="md:w-[70%] md:h-[10%]">
     <Image 
       src="/images/Service24.png" 
@@ -142,7 +142,7 @@ const Services = () => {
 </div>
 
 {/* First Column (Text) */}
-<div className="flex-1 flex flex-col justify-end  md:pl-14 space-y-4"> {/* Reduced md:pl-20 to md:pl-12 */}
+<div className="flex-1 flex flex-col justify-end  md:pl-36 space-y-4"> {/* Reduced md:pl-20 to md:pl-12 */}
 <div className="md:pr-[200px]  space-y-3" >  {/* Padding inside the column */}
   <h2 className="text-xl md:text-2xl font-semibold text-[#EB1260]">4. Consulting and Co-Creation</h2>
   <p className="text-base md:text-lg">
@@ -172,7 +172,7 @@ const Services = () => {
       <div className="flex flex-col md:flex-row items-center md:items-start p-6 md:p-12 space-y-6 md:space-y-0">
   {/* First Column (Text) */}
   <div className="flex-1 flex flex-col text-left justify-end">
-    <div className="md:pl-96 space-y-3"> {/* Padding inside the column */}
+    <div className="md:pl-72 space-y-3"> {/* Padding inside the column */}
       <h2 className="text-xl md:text-2xl font-semibold text-[#EB1260]">5. Managed Services</h2>
       <p className="text-base md:text-lg">
         <span className="font-bold">Model Description:</span>SISCOM provides ongoing management of specific IT functions, such as cloud infrastructure, cybersecurity, or software maintenance. This model is ideal for clients looking to outsource non-core functions to focus on their primary business activities.
@@ -211,7 +211,7 @@ const Services = () => {
       <div className="flex flex-col-reverse md:flex-row items-center md:items-start p-6 md:p-12 space-y-6 md:space-y-0">
 
 {/* Second Column (Image) */}
-<div className="flex-1 flex items-center justify-center md:pl-64"> {/* Reduced md:pl-96 to md:pl-32 */}
+<div className="flex-1 flex items-center justify-center md:pl-44"> {/* Reduced md:pl-96 to md:pl-32 */}
   <div className="md:w-[70%] md:h-[10%]">
     <Image 
       src="/images/Service26.png" 
@@ -224,7 +224,7 @@ const Services = () => {
 </div>
 
 {/* First Column (Text) */}
-<div className="flex-1 flex flex-col justify-end  md:pl-14 space-y-4"> {/* Reduced md:pl-20 to md:pl-12 */}
+<div className="flex-1 flex flex-col justify-end  md:pl-36 space-y-4"> {/* Reduced md:pl-20 to md:pl-12 */}
 <div className="md:pr-[200px]  space-y-3" >  {/* Padding inside the column */}
   <h2 className="text-xl md:text-2xl font-semibold text-[#EB1260]">6. Hybrid Engagement Model</h2>
   <p className="text-base md:text-lg">

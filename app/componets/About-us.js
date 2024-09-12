@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const AboutUs = () => {
   return (
-    <div className="lg:pl-64  lg:pt-16 text-balance bg-white text-center"  style={{height:596}}>
+    <div className="lg:pl-72  lg:pt-16 text-balance bg-white text-center"  style={{height:596}}>
       <div className="flex flex-col md:flex-row">
         <div className="md:w-[40%] p-4 text-left">
           <h1 className="text-4xl font-bold  mb-4">About Us</h1>
