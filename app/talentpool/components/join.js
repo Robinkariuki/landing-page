@@ -7,7 +7,7 @@ const JoinUsForm = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 md:space-x-8">
           {/* Left Side: Heading and Description */}
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4 text-center md:text-start">
             <h1 className="text-3xl font-bold">Join Us Today</h1>
             <p className="text-gray-600">
               Ready to take your career to the next level? Submit<br/> your details here.
@@ -23,7 +23,7 @@ const JoinUsForm = () => {
             </div>
 
             {/* Location */}
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 md:pl-0 pl-8">
               <MapPinIcon className="h-6 w-6 text-[#EB1260]" />
               <p>Nairobi garage, Delta <br/> towers Westlands</p>
             </div>

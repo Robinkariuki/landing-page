@@ -35,7 +35,7 @@ const Benefits = () => {
   return (
     <div>
 
-      <div className="md:pl-[410px] md:pt-20">  
+      <div className="md:pl-[410px] md:pt-20 md:text-start text-center">  
               
       {/* Header */}
       <h1 className="text-4xl font-bold mb-4">Benefits of Joining SISCOM</h1>

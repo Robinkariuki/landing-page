@@ -7,7 +7,7 @@ const TalentHero = () => {
     <div className="relative min-h-screen bg-[#F4F7FA] flex flex-col items-center justify-center text-center p-6 md:p-12 overflow-hidden">
       {/* Background image */}
       <div
-        className="absolute inset-0 w-full md:h-full md:left-0 h-[70vh] left-[-24%] md:bg-cover  bg-auto top-20 md:top-0  bg-no-repeat bg-center z-0"
+        className="absolute inset-0 w-full md:h-full md:left-0 h-[92vh] left-[-24%] md:bg-cover  bg-auto top-20 md:top-0  bg-no-repeat bg-center z-0"
         style={{
           backgroundImage: `url('/images/circles.png')`,
           transform: 'translateX(100px)',
@@ -16,7 +16,7 @@ const TalentHero = () => {
       ></div>
 
       {/* Text content */}
-      <div className="relative z-10 max-w-4xl mx-auto">
+      <div className="relative z-10  max-w-4xl mx-auto">
         <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900">
           Fuel Your Business Growth with Expert Tech Talent
         </h1>
