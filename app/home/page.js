@@ -8,17 +8,19 @@ import Statistics from "../componets/Statistics";
 import Pool from "../componets/pool";
 import { Footer } from "../componets/Footer";
 
-
 export default function LandingPage() {
   return (
-    < >
+    <>
       <Navbar />
-     <Hero/>
-     <AboutUs/>
-     <Statistics/>
-     <Pool/>
-     <Footer/>
-
+      <Hero />
+      <section id="about-us">
+        <AboutUs />
+      </section>
+      <Statistics />
+      <Pool />
+      <section id="contact-us">
+        <Footer />
+      </section>
     </>
   );
 }

@@ -29,9 +29,9 @@ const EngagementModels = () => {
           </ul>
         </div>
 {/* Image */}
-<div className="relative w-full md:w-[462px] md:h-[260px] h-[200px] rounded-lg overflow-hidden">
+<div className="relative w-full md:w-[462px] md:h-[260px] h-[200px]  rounded-lg overflow-hidden">
   <Image
-    src="/images/rec1.png"
+    src="/images/Rec1.png"
     alt="On-demand engagement image"
     layout="fill"
     objectFit="cover"
@@ -47,7 +47,7 @@ const EngagementModels = () => {
         {/* Image */}
         <div className="relative w-full md:w-[462px] md:h-[260px] h-[200px] rounded-lg overflow-hidden">
           <Image
-            src="/images/rec2.png"
+            src="/images/Rec2.png"
             alt="Long-term project engagement image"
             layout="fill"
             objectFit="cover"
@@ -56,7 +56,7 @@ const EngagementModels = () => {
         </div>
 
         {/* Text Content */}
-        <div className="w-full md:w-1/2 md:pl-12 pb-3" >
+        <div className="w-full md:w-1/2 md:pl-24  pb-3" >
           <h2 className="text-xl font-bold mb-2  text-[#EB1260]">
             2. Long-Term Project Engagement
           </h2>
@@ -94,9 +94,9 @@ const EngagementModels = () => {
           </ul>
         </div>
         {/* Image */}
-        <div className="relative w-full md:w-[462px] md:h-[260px] h-[200px] rounded-lg overflow-hidden">
+        <div className="relative w-full md:w-[462px] md:h-[260px] h-[200px] rounded-lg  overflow-hidden">
           <Image
-            src="/images/rec3.png"
+            src="/images/Rec3.png"
             alt="Dedicated team placement image"
             layout="fill"
             objectFit="cover"
@@ -112,7 +112,7 @@ const EngagementModels = () => {
         {/* Image */}
         <div className="relative w-full md:w-[462px] md:h-[260px] h-[200px] rounded-lg overflow-hidden">
           <Image
-            src="/images/rec4.png"
+            src="/images/Rec4.png"
             alt="Consulting and advisory roles image"
             layout="fill"
             objectFit="cover"
@@ -121,7 +121,7 @@ const EngagementModels = () => {
         </div>
 
         {/* Text Content */}
-        <div className="w-full md:w-1/2 md:pl-12 md:pb-4">
+        <div className="w-full md:w-1/2 md:pl-24 md:pb-4">
           <h2 className="text-xl font-bold mb-2 text-[#EB1260]">
             4. Consulting and Advisory Roles
           </h2>
@@ -162,7 +162,7 @@ const EngagementModels = () => {
         {/* Image */}
         <div className="relative w-full md:w-[462px] md:h-[260px] h-[200px] rounded-lg overflow-hidden">
           <Image
-            src="/images/rec5.png"
+            src="/images/Rec5.png"
             alt="Hybrid model image"
             layout="fill"
             objectFit="cover"
