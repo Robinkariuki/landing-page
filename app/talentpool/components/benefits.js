@@ -52,10 +52,10 @@ const Benefits = () => {
       </div>
       <div className="max-w-4xl mx-auto md:pt-0 p-8">
         {/* List of Benefits */}
-        <ul className="space-y-4 ">
-          <li className="flex items-center">
+        <ul className="space-y-4">
+          <li className="flex items-center md:flex-row flex-col" >
             <CustomIcon className="mr-12" pathData={myIcon1} />
-            <p className="text-lg">
+            <p className="text-lg pt-12 md:pt-0">
               <strong>Access to Top-Tier Projects: </strong>
               Join our exclusive talent network and work on cutting-edge
               projects with leading companies in Fintech, Healthcare, Cloud
@@ -63,9 +63,9 @@ const Benefits = () => {
               and we match them with top talent like you.
             </p>
           </li>
-          <li className="flex items-center">
+          <li className="flex md:flex-row flex-col items-center">
             <CustomIcon className="mr-12" pathData={myIcon2} />
-            <p className="text-lg">
+            <p className="text-lg pt-12 md:pt-0">
               <strong>Flexible Working Models: </strong>
               Choose how you work—whether it&apos;s on an hourly, daily, weekly,
               or project basis, we offer flexible earning models that fit your
@@ -73,13 +73,13 @@ const Benefits = () => {
               you the freedom to balance your career with your life.
             </p>
           </li>
-          <li className="flex items-center">
+          <li className="flex items-center md:flex-row flex-col">
             <CustomIcon
               className="mr-12"
               viewBox="0 0 32 32"
               pathData={myIcon3}
             />
-            <p className="text-lg">
+            <p className="text-lg pt-12 md:pt-0">
               <strong>Collaborative Learning Environment: </strong>
               At SISCOM, we believe in continuous growth. Collaborate with
               international experts, gain exposure to more complex and demanding
@@ -87,9 +87,9 @@ const Benefits = () => {
               opportunities.
             </p>
           </li>
-          <li className="flex items-center">
+          <li className="flex items-center md:flex-row flex-col">
             <CustomIcon className="mr-12" pathData={myIcon1} />
-            <p className="text-lg">
+            <p className="text-lg pt-12 md:pt-0">
               <strong>Hassle-Free Onboarding: </strong>
               Getting started with us is easy. Create your profile, get vetted,
               and be notified when the perfect project becomes available. Our
@@ -97,13 +97,13 @@ const Benefits = () => {
               so you can start working without delay.
             </p>
           </li>
-          <li className="flex items-center">
+          <li className="flex items-center md:flex-row flex-col">
             <CustomIcon
               className="mr-12"
               viewBox="0 0 32 32"
               pathData={myIcon5}
             />
-            <p className="text-lg">
+            <p className="text-lg pt-12 md:pt-0">
               <strong>Global Reach, Local Impact: </strong>
               While you work with global clients, you’re also contributing to
               the digital transformation of Africa. Be part of a community that
