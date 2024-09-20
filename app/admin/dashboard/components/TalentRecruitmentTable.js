@@ -8,9 +8,9 @@ import { TrashIcon } from "@heroicons/react/24/outline"; // Import delete icon
 import DeleteConfirmationModal from "./DeleteConfirmationModal";
 import { MdiFilterOutline, UiwDate } from "./icons";
 
-const EngagementTable = () => {
-  const [engagements, setEngagements] = useState([]);
-  const [selectedEngagement, setSelectedEngagement] = useState(null);
+const TalentRecruitmentTable = () => {
+  const [talents, setTalents] = useState([]);
+  const [selectedTalent, setSelectedTalent] = useState(null);
   const [isViewModalOpen, setViewModalOpen] = useState(false);
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
   const [engagementToDelete, setEngagementToDelete] = useState(null);
@@ -28,42 +28,48 @@ const EngagementTable = () => {
 
   const baseUrl = getBaseUrl();
 
-  const fetchEngagements = useCallback(async () => {
+  const fetchTalents = useCallback(async () => {
     try {
-      const response = await axios.get(`${baseUrl}/api/engagements`, {
+      const response = await axios.get(`${baseUrl}/api/talents`, {
         params: {
           page: pagination.currentPage,
           per_page: pagination.perPage,
           search: searchTerm, // Include the search term in the request
         },
       });
-      setEngagements(response.data.data);
+      setTalents(response.data.data);
       setPagination((prev) => ({
         ...prev,
         currentPage: response.data.current_page,
         totalPages: response.data.last_page,
       }));
     } catch (error) {
-      console.error("Error fetching engagements:", error);
+      console.error("Error fetching talents:", error);
     }
   }, [baseUrl, pagination.currentPage, pagination.perPage, searchTerm]);
 
   useEffect(() => {
-    fetchEngagements();
-  }, [fetchEngagements]);
+    fetchTalents();
+  }, [fetchTalents]);
 
   useEffect(() => {
-    if (engagements.length > 0) {
-      const sortedEngagements = sortEngagements([...engagements], sort.column, sort.order);
-      setEngagements(sortedEngagements);
+    if (talents.length > 0) {
+      const sortedTalents = sortTalents([...talents], sort.column, sort.order);
+      setTalents(sortedTalents);
     }
   }, [sort]);
 
-  const sortEngagements = (data, column, order) => {
+  const sortTalents = (data, column, order) => {
     return data.sort((a, b) => {
       const aValue = a[column];
       const bValue = b[column];
-      return order === "asc" ? (aValue > bValue ? 1 : -1) : (aValue < bValue ? 1 : -1);
+      return order === "asc"
+        ? aValue > bValue
+          ? 1
+          : -1
+        : aValue < bValue
+        ? 1
+        : -1;
     });
   };
 
@@ -75,14 +81,14 @@ const EngagementTable = () => {
     setSortDropdownOpen(false);
   };
 
-  const handleViewMessage = (engagement) => {
-    setSelectedEngagement(engagement);
+  const handleViewMessage = (talent) => {
+    setSelectedTalent(talent);
     setViewModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setViewModalOpen(false);
-    setSelectedEngagement(null);
+    setSelectedTalent(null);
   };
 
   const handleDeleteEngagement = async () => {
@@ -153,64 +159,117 @@ const EngagementTable = () => {
         </div>
 
         <div className="relative z-10">
-        <div className="flex justify-between items-center mb-4">
-  <h3 className="text-lg font-semibold">Contacts All ({engagements.length})</h3>
-  <div className="flex space-x-4">
-    {/* Sort Button with Dropdown */}
-    <div className="relative">
-      <button
-        className="flex items-center border border-gray-300 rounded-lg px-4 py-2"
-        onClick={() => setSortDropdownOpen(!isSortDropdownOpen)}
-      >
-        <MdiFilterOutline className="w-5 h-5 text-gray-600 mr-2" />
-        <span className="text-gray-700">Sort by {sort.column.charAt(0).toUpperCase() + sort.column.slice(1)} {sort.order === "asc" ? "↑" : "↓"}</span>
-      </button>
-      {isSortDropdownOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg z-10">
-          <button onClick={() => handleSortChange("name")} className="block w-full text-left px-4 py-2 hover:bg-gray-200">Name</button>
-          <button onClick={() => handleSortChange("email")} className="block w-full text-left px-4 py-2 hover:bg-gray-200">Email</button>
-          <button onClick={() => handleSortChange("company")} className="block w-full text-left px-4 py-2 hover:bg-gray-200">Company</button>
-          <button onClick={() => handleSortChange("date")} className="block w-full text-left px-4 py-2 hover:bg-gray-200">Date</button>
-        </div>
-      )}
-    </div>
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-lg font-semibold">
+              Contacts All ({talents.length})
+            </h3>
+            <div className="flex space-x-4">
+              {/* Sort Button with Dropdown */}
+              <div className="relative">
+                <button
+                  className="flex items-center border border-gray-300 rounded-lg px-4 py-2"
+                  onClick={() => setSortDropdownOpen(!isSortDropdownOpen)}
+                >
+                  <MdiFilterOutline className="w-5 h-5 text-gray-600 mr-2" />
+                  <span className="text-gray-700">
+                    Sort by{" "}
+                    {sort.column.charAt(0).toUpperCase() + sort.column.slice(1)}{" "}
+                    {sort.order === "asc" ? "↑" : "↓"}
+                  </span>
+                </button>
+                {isSortDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg z-10">
+                    <button
+                      onClick={() => handleSortChange("name")}
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-200"
+                    >
+                      Name
+                    </button>
+                    <button
+                      onClick={() => handleSortChange("email")}
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-200"
+                    >
+                      Email
+                    </button>
+                    <button
+                      onClick={() => handleSortChange("experience")}
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-200"
+                    >
+                      Experience
+                    </button>
+                    <button
+                      onClick={() => handleSortChange("date")}
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-200"
+                    >
+                      Date
+                    </button>
+                  </div>
+                )}
+              </div>
 
-    {/* Filter Button */}
-    {/* <button className="flex items-center border border-gray-300 rounded-lg px-4 py-2">
+              {/* Filter Button */}
+              {/* <button className="flex items-center border border-gray-300 rounded-lg px-4 py-2">
       <UiwDate className="w-5 h-5 text-gray-600 mr-2" />
       <span className="text-gray-700">Filter</span>
     </button> */}
-  </div>
-</div>
+            </div>
+          </div>
 
           <table className="min-w-full table-auto">
             <thead>
               <tr className="border-b">
                 <th className="px-4 py-2 text-left">NAME</th>
                 <th className="px-4 py-2 text-left">EMAIL</th>
-                <th className="px-4 py-2 text-left">PHONE</th>
-                <th className="px-4 py-2 text-left">COMPANY</th>
-                <th className="px-4 py-2 text-left">MESSAGE</th>
-                <th className="px-4 py-2 text-left">DATE</th>
+                <th className="px-4 py-2 text-left">RESUME</th>
+                <th className="px-4 py-2 text-left">EXPERIENCE(yrs)</th>
+                <th className="px-4 py-2 text-left">LINKEDIN</th>
+                <th className="px-4 py-2 text-left">PORTFOLIO</th>
+                <th className="px-4 py-2 text-left">SPECIALIZATION</th>
+                <th className="px-4 py-2 text-left">TECHNICAL SKILLS</th>
                 <th className="px-4 py-2 text-left">ACTION</th>
               </tr>
             </thead>
             <tbody>
-              {engagements.map((engagement) => (
-                <tr key={engagement.id} className="border-b hover:bg-gray-50">
-                  <td className="px-4 py-2">{engagement.name}</td>
-                  <td className="px-4 py-2">{engagement.email}</td>
-                  <td className="px-4 py-2">{engagement.phone}</td>
-                  <td className="px-4 py-2">{engagement.company}</td>
+              {talents.map((talent) => (
+                <tr key={talent.id} className="border-b hover:bg-gray-50">
+                  <td className="px-4 py-2">{talent.name}</td>
+                  <td className="px-4 py-2">{talent.email}</td>
                   <td className="px-4 py-2">
-                    <button
-                      className="bg-green-500 text-white px-4 py-1 rounded-full"
-                      onClick={() => handleViewMessage(engagement)}
+                    <a
+                      href={talent.resume}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
                     >
-                      View
-                    </button>
+                      Link
+                    </a>
                   </td>
-                  <td className="px-4 py-2">{engagement.date}</td>
+                  <td className="px-4 py-2">{talent.years_of_experience}</td>
+                  <td className="px-4 py-2">
+                    <a
+                      href={talent.linkedin_profile}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                    Link
+                    </a>
+                  </td>
+                  <td className="px-4 py-2">
+                    <a
+                      href={talent.previous_work_portfolio}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                    Link
+                    </a>
+                  </td>
+
+                  <td className="px-4 py-2">{talent.specialization}</td>
+                  <td className="px-4 py-2">{talent.technical_skills}</td>
+
+                 
                   <td className="px-4 py-2">
                     <button onClick={() => confirmDeleteEngagement(engagement)}>
                       <TrashIcon className="h-6 w-6 text-red-600" />
@@ -226,7 +285,13 @@ const EngagementTable = () => {
             <div>
               <select
                 value={pagination.perPage}
-                onChange={(e) => setPagination((prev) => ({ ...prev, perPage: Number(e.target.value), currentPage: 1 }))}
+                onChange={(e) =>
+                  setPagination((prev) => ({
+                    ...prev,
+                    perPage: Number(e.target.value),
+                    currentPage: 1,
+                  }))
+                }
                 className="border border-gray-300 rounded-lg px-4 py-2"
               >
                 <option value={10}>10</option>
@@ -240,14 +305,24 @@ const EngagementTable = () => {
                 {pagination.currentPage} of {pagination.totalPages} pages
               </span>
               <button
-                onClick={() => handlePageChange(pagination.currentPage > 1 ? pagination.currentPage - 1 : 1)}
+                onClick={() =>
+                  handlePageChange(
+                    pagination.currentPage > 1 ? pagination.currentPage - 1 : 1
+                  )
+                }
                 className="p-2 bg-white border border-gray-300 rounded-lg"
                 disabled={pagination.currentPage === 1}
               >
-                &lt; 
+                &lt;
               </button>
               <button
-                onClick={() => handlePageChange(pagination.currentPage < pagination.totalPages ? pagination.currentPage + 1 : pagination.totalPages)}
+                onClick={() =>
+                  handlePageChange(
+                    pagination.currentPage < pagination.totalPages
+                      ? pagination.currentPage + 1
+                      : pagination.totalPages
+                  )
+                }
                 className="p-2 bg-white border border-gray-300 rounded-lg ml-2"
                 disabled={pagination.currentPage === pagination.totalPages}
               >
@@ -259,12 +334,12 @@ const EngagementTable = () => {
       </div>
 
       {/* View Modal */}
-      {selectedEngagement && (
+      {selectedTalent && (
         <Modal
           isOpen={isViewModalOpen}
           onClose={handleCloseModal}
-          name={selectedEngagement.name}
-          message={selectedEngagement.message}
+          name={selectedTalent.name}
+          message={selectedTalent.message}
         />
       )}
 
@@ -281,4 +356,4 @@ const EngagementTable = () => {
   );
 };
 
-export default EngagementTable;
+export default TalentRecruitmentTable;

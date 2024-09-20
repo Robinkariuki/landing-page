@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image'; // Import the Next.js Image component
 import EngagementTable from './components/engagementTable';
+import TalentRecruitmentTable from './components/TalentRecruitmentTable'; // Import the TalentRecruitmentTable component
 
 export default function Dashboard() {
   const [activePage, setActivePage] = useState('dashboard'); // State to manage the active page
@@ -58,6 +59,7 @@ export default function Dashboard() {
       {/* Main Content */}
       <main className="flex-1 p-8">
         {activePage === 'engagement' && <EngagementTable />}
+        {activePage === 'recruitment' && <TalentRecruitmentTable />} {/* Add TalentRecruitmentTable here */}
         {/* Render other components based on activePage */}
       </main>
     </div>
