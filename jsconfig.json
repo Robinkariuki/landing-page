@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "target": "es6", // Or "es2015" or higher
+    "lib": ["dom", "es6"], // Ensure ES6 is included
     "paths": {
       "@/*": ["./*"]
     }
