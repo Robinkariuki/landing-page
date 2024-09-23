@@ -7,13 +7,18 @@ import Modal from "./popUp"; // Assuming this is your modal component
 import { TrashIcon } from "@heroicons/react/24/outline"; // Import delete icon
 import DeleteConfirmationModal from "./DeleteConfirmationModal";
 import { MdiFilterOutline, UiwDate } from "./icons";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { useAuth } from "@/utils/context/AuthContext";
+import CryptoJS from "crypto-js";
+
 
 const TalentRecruitmentTable = () => {
   const [talents, setTalents] = useState([]);
   const [selectedTalent, setSelectedTalent] = useState(null);
   const [isViewModalOpen, setViewModalOpen] = useState(false);
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
-  const [engagementToDelete, setEngagementToDelete] = useState(null);
+  const [talentToDelete, setTalentToDelete] = useState(null);
   const [pagination, setPagination] = useState({
     currentPage: 1,
     totalPages: 1,
@@ -25,12 +30,20 @@ const TalentRecruitmentTable = () => {
     order: "asc",
   });
   const [isSortDropdownOpen, setSortDropdownOpen] = useState(false);
+  const secretKey = process.env.NEXT_PUBLIC_SECRET_KEY;
+
+
 
   const baseUrl = getBaseUrl();
+  const { token } = useAuth();
 
   const fetchTalents = useCallback(async () => {
+    const decryptedToken = CryptoJS.AES.decrypt(token, secretKey).toString(CryptoJS.enc.Utf8); 
     try {
       const response = await axios.get(`${baseUrl}/api/talents`, {
+        headers: {
+            Authorization: `Bearer ${decryptedToken}`, // Use the token from context
+        },
         params: {
           page: pagination.currentPage,
           per_page: pagination.perPage,
@@ -81,38 +94,47 @@ const TalentRecruitmentTable = () => {
     setSortDropdownOpen(false);
   };
 
-  const handleViewMessage = (talent) => {
-    setSelectedTalent(talent);
-    setViewModalOpen(true);
-  };
+//   const handleViewMessage = (talent) => {
+//     setSelectedTalent(talent);
+//     setViewModalOpen(true);
+//   };
 
   const handleCloseModal = () => {
     setViewModalOpen(false);
     setSelectedTalent(null);
   };
 
-  const handleDeleteEngagement = async () => {
-    if (!engagementToDelete) return;
+  const handleDeleteTalent = async () => {
+    const decryptedToken = CryptoJS.AES.decrypt(token, secretKey).toString(CryptoJS.enc.Utf8);
+    if (!talentToDelete) return;
 
     try {
-      await axios.delete(`${baseUrl}/api/engagements/${engagementToDelete.id}`);
-      fetchEngagements();
+      await axios.delete(`${baseUrl}/api/talents/${talentToDelete.id}`,{
+        headers: {
+            Authorization: `Bearer ${decryptedToken}`, // Use the decrypted token
+        },
+      });
+      toast.success("Deleted successfully!");
+
+      // Refetch talents after deletion
+      fetchTalents();
     } catch (error) {
-      console.error("Error deleting engagement:", error);
+      toast.error("Error deleting talent.");
+      console.error("Error deleting talent:", error);
     } finally {
       setDeleteModalOpen(false);
-      setEngagementToDelete(null);
+      setTalentToDelete(null);
     }
   };
 
-  const confirmDeleteEngagement = (engagement) => {
-    setEngagementToDelete(engagement);
+  const confirmDeleteTalent = (talent) => {
+    setTalentToDelete(talent);
     setDeleteModalOpen(true);
   };
 
   const handleCloseDeleteModal = () => {
     setDeleteModalOpen(false);
-    setEngagementToDelete(null);
+    setTalentToDelete(null);
   };
 
   const handleSearchChange = (e) => {
@@ -128,8 +150,8 @@ const TalentRecruitmentTable = () => {
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-xl font-semibold">Pages / Client Engagement</h1>
-          <h2 className="text-2xl font-bold mt-1">Client Engagement</h2>
+          <h1 className="text-xl font-semibold"><span className="text-[#718096]">Pages</span>/ Talent Recruitment</h1>
+          <h2 className="text-2xl font-bold mt-1">Talent Recruitment</h2>
         </div>
         {/* Search and Settings */}
         <div className="flex items-center space-x-4">
@@ -140,23 +162,15 @@ const TalentRecruitmentTable = () => {
             onChange={handleSearchChange}
             className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none"
           />
-          <button className="p-2 bg-white border border-gray-300 rounded-lg">
+          {/* <button className="p-2 bg-white border border-gray-300 rounded-lg">
             <span>⚙️</span>
-          </button>
+          </button> */}
         </div>
       </div>
 
       {/* Table */}
       <div className="bg-white rounded-lg shadow-md p-6 relative">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0 opacity-10">
-          <Image
-            src={""} // Provide image URL
-            alt="Background"
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
+
 
         <div className="relative z-10">
           <div className="flex justify-between items-center mb-4">
@@ -217,7 +231,7 @@ const TalentRecruitmentTable = () => {
 
           <table className="min-w-full table-auto">
             <thead>
-              <tr className="border-b">
+              <tr className="border-b w-[49px] h-[15px] text-[#A0AEC0]">
                 <th className="px-4 py-2 text-left">NAME</th>
                 <th className="px-4 py-2 text-left">EMAIL</th>
                 <th className="px-4 py-2 text-left">RESUME</th>
@@ -232,11 +246,11 @@ const TalentRecruitmentTable = () => {
             <tbody>
               {talents.map((talent) => (
                 <tr key={talent.id} className="border-b hover:bg-gray-50">
-                  <td className="px-4 py-2">{talent.name}</td>
-                  <td className="px-4 py-2">{talent.email}</td>
+                  <td className="px-4 py-2 font-bold">{talent.name}</td>
+                  <td className="px-4 py-2 text-[#718096]">{talent.email}</td>
                   <td className="px-4 py-2">
                     <a
-                      href={talent.resume}
+                      href={`${baseUrl}${talent.resume}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-blue-600 hover:underline"
@@ -244,7 +258,7 @@ const TalentRecruitmentTable = () => {
                       Link
                     </a>
                   </td>
-                  <td className="px-4 py-2">{talent.years_of_experience}</td>
+                  <td className="px-4 py-2 text-[#718096]">{talent.years_of_experience}</td>
                   <td className="px-4 py-2">
                     <a
                       href={talent.linkedin_profile}
@@ -266,12 +280,12 @@ const TalentRecruitmentTable = () => {
                     </a>
                   </td>
 
-                  <td className="px-4 py-2">{talent.specialization}</td>
-                  <td className="px-4 py-2">{talent.technical_skills}</td>
+                  <td className="px-4 py-2 text-[#718096]">{talent.specialization}</td>
+                  <td className="px-4 py-2 text-[#718096]">{talent.technical_skills}</td>
 
                  
                   <td className="px-4 py-2">
-                    <button onClick={() => confirmDeleteEngagement(engagement)}>
+                    <button onClick={() => confirmDeleteTalent(talent)}>
                       <TrashIcon className="h-6 w-6 text-red-600" />
                     </button>
                   </td>
@@ -348,10 +362,13 @@ const TalentRecruitmentTable = () => {
         <DeleteConfirmationModal
           isOpen={isDeleteModalOpen}
           onClose={handleCloseDeleteModal}
-          onConfirm={handleDeleteEngagement}
-          name={engagementToDelete?.name}
+          onConfirm={handleDeleteTalent}
+          name={talentToDelete?.name}
         />
       )}
+
+        {/* Toastify container */}
+        <ToastContainer />
     </div>
   );
 };

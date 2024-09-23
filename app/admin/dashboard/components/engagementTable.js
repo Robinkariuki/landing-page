@@ -7,6 +7,11 @@ import Modal from "./popUp"; // Assuming this is your modal component
 import { TrashIcon } from "@heroicons/react/24/outline"; // Import delete icon
 import DeleteConfirmationModal from "./DeleteConfirmationModal";
 import { MdiFilterOutline, UiwDate } from "./icons";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { useAuth } from "@/utils/context/AuthContext";
+import CryptoJS from "crypto-js";
+import AccountSettingsModal from "./AccountSettingsModal";
 
 const EngagementTable = () => {
   const [engagements, setEngagements] = useState([]);
@@ -14,6 +19,7 @@ const EngagementTable = () => {
   const [isViewModalOpen, setViewModalOpen] = useState(false);
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
   const [engagementToDelete, setEngagementToDelete] = useState(null);
+
   const [pagination, setPagination] = useState({
     currentPage: 1,
     totalPages: 1,
@@ -26,17 +32,24 @@ const EngagementTable = () => {
   });
   const [isSortDropdownOpen, setSortDropdownOpen] = useState(false);
 
+
+  const secretKey = process.env.NEXT_PUBLIC_SECRET_KEY;
   const baseUrl = getBaseUrl();
+  const { token } = useAuth();
 
   const fetchEngagements = useCallback(async () => {
+    const decryptedToken = CryptoJS.AES.decrypt(token, secretKey).toString(CryptoJS.enc.Utf8); 
     try {
       const response = await axios.get(`${baseUrl}/api/engagements`, {
-        params: {
-          page: pagination.currentPage,
-          per_page: pagination.perPage,
-          search: searchTerm, // Include the search term in the request
-        },
-      });
+            headers: {
+                Authorization: `Bearer ${decryptedToken}`, // Use the token from context
+            },
+            params: {
+                page: pagination.currentPage,
+                per_page: pagination.perPage,
+                search: searchTerm, // Include the search term in the request
+            },
+        });
       setEngagements(response.data.data);
       setPagination((prev) => ({
         ...prev,
@@ -86,10 +99,16 @@ const EngagementTable = () => {
   };
 
   const handleDeleteEngagement = async () => {
+    const decryptedToken = CryptoJS.AES.decrypt(token, secretKey).toString(CryptoJS.enc.Utf8); 
     if (!engagementToDelete) return;
 
     try {
-      await axios.delete(`${baseUrl}/api/engagements/${engagementToDelete.id}`);
+        await axios.delete(`${baseUrl}/api/engagements/${engagementToDelete.id}`, {
+            headers: {
+                Authorization: `Bearer ${decryptedToken}`, // Use the decrypted token
+            },
+        });
+      toast.success("Deleted successfully!");
       fetchEngagements();
     } catch (error) {
       console.error("Error deleting engagement:", error);
@@ -122,7 +141,7 @@ const EngagementTable = () => {
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-xl font-semibold">Pages / Client Engagement</h1>
+          <h1 className="text-xl font-semibold"><span className="text-[#718096]">Pages</span>/Client Engagement</h1>
           <h2 className="text-2xl font-bold mt-1">Client Engagement</h2>
         </div>
         {/* Search and Settings */}
@@ -134,23 +153,13 @@ const EngagementTable = () => {
             onChange={handleSearchChange}
             className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none"
           />
-          <button className="p-2 bg-white border border-gray-300 rounded-lg">
-            <span>⚙️</span>
-          </button>
+    
         </div>
       </div>
 
       {/* Table */}
       <div className="bg-white rounded-lg shadow-md p-6 relative">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0 opacity-10">
-          <Image
-            src={""} // Provide image URL
-            alt="Background"
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
+
 
         <div className="relative z-10">
         <div className="flex justify-between items-center mb-4">
@@ -185,7 +194,7 @@ const EngagementTable = () => {
 
           <table className="min-w-full table-auto">
             <thead>
-              <tr className="border-b">
+              <tr className="border-b w-[49px] h-[15px] text-[#A0AEC0] ">
                 <th className="px-4 py-2 text-left">NAME</th>
                 <th className="px-4 py-2 text-left">EMAIL</th>
                 <th className="px-4 py-2 text-left">PHONE</th>
@@ -198,10 +207,10 @@ const EngagementTable = () => {
             <tbody>
               {engagements.map((engagement) => (
                 <tr key={engagement.id} className="border-b hover:bg-gray-50">
-                  <td className="px-4 py-2">{engagement.name}</td>
-                  <td className="px-4 py-2">{engagement.email}</td>
-                  <td className="px-4 py-2">{engagement.phone}</td>
-                  <td className="px-4 py-2">{engagement.company}</td>
+                  <td className="px-4 py-2 font-bold">{engagement.name}</td>
+                  <td className="px-4 py-2 text-[#718096]">{engagement.email}</td>
+                  <td className="px-4 py-2 text-[#718096]">{engagement.phone}</td>
+                  <td className="px-4 py-2 text-[#718096]">{engagement.company}</td>
                   <td className="px-4 py-2">
                     <button
                       className="bg-green-500 text-white px-4 py-1 rounded-full"
@@ -210,7 +219,7 @@ const EngagementTable = () => {
                       View
                     </button>
                   </td>
-                  <td className="px-4 py-2">{engagement.date}</td>
+                  <td className="px-4 py-2 text-[#718096]">{engagement.date}</td>
                   <td className="px-4 py-2">
                     <button onClick={() => confirmDeleteEngagement(engagement)}>
                       <TrashIcon className="h-6 w-6 text-red-600" />
@@ -277,6 +286,7 @@ const EngagementTable = () => {
           name={engagementToDelete?.name}
         />
       )}
+      <ToastContainer />
     </div>
   );
 };

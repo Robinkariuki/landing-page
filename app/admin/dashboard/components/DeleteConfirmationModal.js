@@ -17,7 +17,7 @@ const DeleteConfirmationModal = ({ isOpen, onClose, onConfirm, name }) => {
 
         {/* Confirmation message */}
         <h2 className="text-lg font-semibold text-gray-800 mb-4">Confirm Deletion</h2>
-        <p className="mb-4">Are you sure you want to delete the engagement from {name}?</p>
+        <p className="mb-4">Are you sure you want to delete  {name}?</p>
 
         {/* Action buttons */}
         <div className="flex justify-end space-x-4">
